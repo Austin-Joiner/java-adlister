@@ -7,18 +7,22 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello")
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet(name = "CounterServlet", urlPatterns = "/counter")
+public class CounterServlet extends HttpServlet {
+
+    private static int count = 0;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        String name = request.getParameter("name");
-        if (name != null && !name.isEmpty()) {
-            out.println("<h1>Hello, " + name + "!</h1>");
-        } else {
-            out.println("<h1>Hello, World!</h1>");
+        String reset = request.getParameter("reset");
+        if (reset != null && reset.equalsIgnoreCase("true")) {
+            count = -1;
+            out.println("<p>The count has been reset.</p>");
+        }
+            count++;
+            out.println("<h3>Count: " + count + "</h3>");
         }
     }
-}
+
