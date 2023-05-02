@@ -17,12 +17,13 @@ public class CounterServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         String reset = request.getParameter("reset");
-        if (reset != null && reset.equalsIgnoreCase("true")) {
-            count = -1;
+        if (reset != null) {
+            count = 0;
             out.println("<p>The count has been reset.</p>");
-        }
+        } else {
             count++;
-            out.println("<h3>Count: " + count + "</h3>");
+        }
+        out.println("<h3>Count: " + count + "</h3>");
         }
     }
 
