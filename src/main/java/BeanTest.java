@@ -24,7 +24,7 @@ public class BeanTest {
         Author authorOne = new Author(1,"Mark", "Twain");
         Author authorTwo = new Author(2, "Douglas", "Adams");
         Author authorThree= new Author(3, "Kurt", "Vonnegut");
-        ArrayList<Author> authorList = new ArrayList<>()
+        ArrayList<Author> authorList = new ArrayList<>();
         authorList.add(authorOne);
         authorList.add(authorTwo);
         authorList.add(authorThree);
